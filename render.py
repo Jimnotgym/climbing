@@ -40,7 +40,7 @@ filename='crags/grinshill/crag.json'
 
 cragdata=readJSON(filename)
 
-crag = Crag(name=cragdata["name"],description=cragdata["description"],access=cragdata["access"],\
+crag = Crag(name=cragdata["name"],path='crags',description=cragdata["description"],access=cragdata["access"],\
     mapsrc=cragdata["mapsrc"],maphref=cragdata["maphref"])
 
 renderWebsite(crag)
