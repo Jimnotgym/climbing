@@ -18,6 +18,18 @@ src="{{crag.mapsrc}}" style="border: 1px solid black">
 <p>{{crag.access}}</p>
 <br>
 <hr>
+<br>
+
+{% for n in range (nareas) %}
+  <h2>{{ crag.areas[n]['name'] }}</h2>
+    <p>{{ crag.areas[n]['description'] }}</p>
+      {% for climb in crag.areas[n]['climbs'] %}
+        <h3>{{ climb[0] }}    {{ climb[1] }}</h3>
+        <p>{{ climb[2] }}</P>
+      {% endfor %}
+      <hr>
+      <br>
+{% endfor %}
 
 
 

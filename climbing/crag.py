@@ -1,6 +1,7 @@
 import json
 import csv
 import os
+import operator
 
 def readJSON(filename):
     with open(filename) as data_file:
@@ -17,12 +18,36 @@ class Crag():
         self.mapsrc=mapsrc
         self.maphref=maphref
         self.path=path
-        self.areas=Areas(self.path).areas
+        self._getAreas()
 
+    def _getAreas(self):
+        """Returs a list of dictionaries containing the area info"""
+        self.areas=[]
+        for areadir in os.listdir("crags/"+self.path):
+
+            try:
+                # TODO This needs to use OS  join paths
+                area=readJSON("crags/"+self.path+'/'+areadir+'/area.json')
+                # get the climbs for that area as a list and add into dictionaries
+                climbs=self._getclimbs(areadir)
+                area["climbs"]=climbs
+
+                self.areas.append(area)
+            except NotADirectoryError:
+                pass #skip crag files
+        # sort the list into order
+        self.areas.sort(key=operator.itemgetter('order'))
+
+    def _getclimbs(self,path):
+        #TODO join the path properly with OS
+        with open('crags/'+self.path+"/"+path+'/climbs.csv', 'r') as f:
+            reader = csv.reader(f)
+            climbs = list(reader)
+            return climbs
 
 
 class Areas():
-    """class to hold areas within a crag
+    """Unused class to hold areas within a crag
     """
     def __init__(self,path):
         self.path=path
@@ -50,11 +75,19 @@ class Areas():
             self.names.append(self.areas[x]['name'])
         return self.names
 
-
+class Area():
+    """Unused Object holding an area"""
+    def __init__(self,areadict,path):
+        self.path=path
+        self.name=areadict[name]
+        self.order=areadict[order]
+        self.image=areadict[image]
+        self.description=[description]
+        self.climbs=Climb(self.path)
 
 
 class Climb(list):
-    """ base class for a climbs in an area
+    """ Unused base class for a climbs in an area
     """
     def __init__(self,path):
         with open('crags/'+path+'/climbs.csv', 'r') as f:
