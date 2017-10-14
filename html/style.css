@@ -1,13 +1,18 @@
 /* Styles */
 
+a {
+color: #52658f;
+}
 
-
+a:hover {
+color: #ff3300;
+}
 
 
 body {
-  background-color:#FFFFFF;
-  color:#5c5c5c;
-  font-family: Verdana;
+  background-color:#F7F5E6;
+  color:#333A56;
+  font-family: sans-serif;
   margin: 20px;
 }
 
@@ -24,7 +29,7 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #333333;
+    background-color: #333A56;
 }
 
 .menu li {
@@ -33,12 +38,12 @@ body {
 
 .menu li a {
     display: block;
-    color: white;
+    color: #E8E8E8;
     text-align: center;
     padding: 16px;
     text-decoration: none;
 }
 
 .menu li a:hover {
-    background-color: #111111;
+    background-color: #52658f;
 }
