@@ -12,10 +12,16 @@ src="{{crag.mapsrc}}" style="border: 1px solid black">
 
 
 <h2>Description</h2>
+{% if crag.osgrid %}
+<p>OS grid reference {{crag.osgrid}}</p>
+{% endif %}
 <p>{{crag.description}}</p>
 
 <h2>Access</h2>
-<p>{{crag.access}}</p>
+<p>{{crag.access}}
+<br>
+<br>
+<a href="{{crag.bmcrad}}">Up to date access information is available from the BMC</a></p>
 <br>
 <hr>
 <br>
@@ -24,8 +30,8 @@ src="{{crag.mapsrc}}" style="border: 1px solid black">
   <h2>{{ crag.areas[n]['name'] }}</h2>
     <p>{{ crag.areas[n]['description'] }}</p>
       {% for climb in crag.areas[n]['climbs'] %}
-        <h3>{{ climb[0] }}    {{ climb[1] }}</h3>
-        <p>{{ climb[2] }}</P>
+        <h3>{{ climb[0] }}    {{ climb[1] }}    {{ climb[2] }}</h3>
+        <p>{{ climb[3] }}</P>
       {% endfor %}
       <hr>
       <br>

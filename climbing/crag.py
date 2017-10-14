@@ -11,13 +11,14 @@ def readJSON(filename):
 class Crag():
     """class to hold all of the data about a crag
     """
-    def __init__(self,name,path,description='no description',access='no details',mapsrc='',maphref=''):
+    def __init__(self,name,path,description='no description',access='no details',mapsrc='',maphref='',osgrid=''):
         self.name=name
         self.description=description
         self.access=access
         self.mapsrc=mapsrc
         self.maphref=maphref
         self.path=path
+        self.osgrid=osgrid
         self._getAreas()
 
     def _getAreas(self):
