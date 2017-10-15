@@ -53,6 +53,8 @@ def readJSON(filename):
         data = json.load(data_file)
     return data
 
+# TODO multiple crags
+# TODO Make render functions generic
 filename='crags/grinshill/crag.json'
 
 cragdata=readJSON(filename)
