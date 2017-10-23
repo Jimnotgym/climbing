@@ -32,6 +32,7 @@ src="{{crag.mapsrc}}" style="border: 1px solid black">
 
 {% for n in range (nareas) %}
   <h2>{{ crag.areas[n]['name'] }}</h2>
+  <img  src="{{ crag.areas[n]['image'] }}">
     <p>{{ crag.areas[n]['description'] }}</p>
       {% for climb in crag.areas[n]['climbs'] %}
         <h3>{{ climb[0] }}{% if climb[0] %}.{% endif %}   {{ climb[1] }}    {{ climb[2] }}</h3>
